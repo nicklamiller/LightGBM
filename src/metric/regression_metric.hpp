@@ -339,13 +339,11 @@ class R2Metric: public Metric {
      double sum_label = 0.0f;
      if (weights_ == nullptr) {
        sum_weights_ = static_cast<double>(num_data_);
-       #pragma omp parallel for num_threads(OMP_NUM_THREADS()) schedule(static) reduction(+:sum_label)
        for (data_size_t i = 0; i < num_data_; ++i) {
          sum_label += label_[i];
        }
      } else {
        sum_weights_ = 0.0f;
-       #pragma omp parallel for num_threads(OMP_NUM_THREADS()) schedule(static) reduction(+:sum_weights_, sum_label)
        for (data_size_t i = 0; i < num_data_; ++i) {
          sum_weights_ += weights_[i];
          sum_label += label_[i] * weights_[i];
@@ -355,13 +353,11 @@ class R2Metric: public Metric {
 
      total_sum_squares_ = 0.0f;
      if (weights_ == nullptr) {
-       #pragma omp parallel for num_threads(OMP_NUM_THREADS()) schedule(static) reduction(+:total_sum_squares_)
        for (data_size_t i = 0; i < num_data_; ++i) {
          double diff = label_[i] - label_mean_;
          total_sum_squares_ += diff * diff;
        }
      } else {
-       #pragma omp parallel for num_threads(OMP_NUM_THREADS()) schedule(static) reduction(+:total_sum_squares_)
        for (data_size_t i = 0; i < num_data_; ++i) {
          double diff = label_[i] - label_mean_;
          total_sum_squares_ += diff * diff * weights_[i];
