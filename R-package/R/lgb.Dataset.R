@@ -1097,11 +1097,11 @@ lgb.slice.Dataset <- function(dataset, idxset) {
 #' \itemize{
 #'     \item \code{label}: label lightgbm learns from ;
 #'     \item \code{weight}: to do a weight rescale ;
-#'     \item{\code{group}: used for learning-to-rank tasks. An integer vector describing how to
+#'     \item \code{group}: used for learning-to-rank tasks. An integer vector describing how to
 #'         group rows together as ordered results from the same set of candidate results to be ranked.
 #'         For example, if you have a 100-document dataset with \code{group = c(10, 20, 40, 10, 10, 10)},
 #'         that means that you have 6 groups, where the first 10 records are in the first group,
-#'         records 11-30 are in the second group, etc.}
+#'         records 11-30 are in the second group, etc.
 #'     \item \code{init_score}: initial score is the base prediction lightgbm will boost from.
 #' }
 #' @return requested attribute
@@ -1147,11 +1147,11 @@ get_field.lgb.Dataset <- function(dataset, field_name) {
 #' \itemize{
 #'     \item \code{label}: label lightgbm learns from ;
 #'     \item \code{weight}: to do a weight rescale ;
-#'     \item{\code{group}: used for learning-to-rank tasks. An integer vector describing how to
+#'     \item \code{group}: used for learning-to-rank tasks. An integer vector describing how to
 #'         group rows together as ordered results from the same set of candidate results to be ranked.
 #'         For example, if you have a 100-document dataset with \code{group = c(10, 20, 40, 10, 10, 10)},
 #'         that means that you have 6 groups, where the first 10 records are in the first group,
-#'         records 11-30 are in the second group, etc.}
+#'         records 11-30 are in the second group, etc.
 #'     \item \code{init_score}: initial score is the base prediction lightgbm will boost from.
 #' }
 #' @param data The data for the field. See examples.
